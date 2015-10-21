@@ -47,7 +47,7 @@
 
 	<!-- Default, run this -->
 	<target name="main" depends="clean, compile, dist" />
-
+<antcall target="checkstyle"/>
 <target name="checkstyle">
 <checkstyle config="${checkstyle.dir}/sun_checks.xml">
 <fileset dir="${src.dir}">
