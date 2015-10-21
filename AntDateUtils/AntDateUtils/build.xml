@@ -13,7 +13,8 @@
 
 	<!-- Output, Jar -->
 	<property name="dist.dir" location="dist" />
-
+<property name="checkstyle.dir" value="/var/lib/jenkins/plugins/checkstyle"/>
+<taskdef resource="checkstyletask.properties" classpath="/var/lib/jenkins/plugins/checkstyle/checkstyle-6.11.2-all.jar"/>
 	<target name="init">
 		<!-- Create the time stamp -->
 		<tstamp />
@@ -46,5 +47,15 @@
 
 	<!-- Default, run this -->
 	<target name="main" depends="clean, compile, dist" />
+
+<target name="checkstyle">
+<checkstyle config="${checkstyle.dir}/sun_checks.xml">
+<fileset srcdir="${src.dir}">
+<include name="**/*.java"/>
+</fileset>
+<formatter type="plain"/>
+<formatter type="xml" toFile="checkstyle-result.xml"/>
+</checkstyle>
+</target>
 
 </project>
