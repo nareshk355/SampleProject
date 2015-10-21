@@ -53,7 +53,7 @@
 <include name="**/*.java"/>
 </fileset>
 <formatter type="plain"/>
-<formatter type="xml" toFile="${dist.dir}/checkstyle-result.xml"/>
+<formatter type="xml" toFile="checkstyle-result.xml"/>
 </checkstyle>
 </target>
 
